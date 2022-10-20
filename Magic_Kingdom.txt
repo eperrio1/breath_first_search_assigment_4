@@ -1,0 +1,8 @@
+Entrance, Main_Street
+Main_Street, Entrance, Castle
+Castle, Adventureland, Liberty Square, Fantasyland, Tomorrowland
+Tomorrowland, Castle, Fantasyland
+Fantasyland, Liberty Square, Castle, Tommrrowland
+Liberty Square, Adventureland, Castle, Fantasyland
+Adventureland, Frontierland, Liberty Square, Castle
+Frontierland, Adventureland

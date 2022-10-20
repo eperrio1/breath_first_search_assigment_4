@@ -1,0 +1,8 @@
+Entrance, Spaceship_Earth
+Spaceship_Earth, Future_World_East, Future_World_West
+Mexico, Norway, Future_World_East
+Norway, Mexico, China
+China, Norway, America
+America, China, Japan
+Japan, USAm International_Gatway
+Future_World_West, Spaceship_Earth, International_Gatway
