@@ -59,8 +59,8 @@ def bfs(graph):
             print("Sorry, that location is not in the graph, please input a new ending point. ")
             end = input("Where should the search END?: ").lower()
 
-    # list of nodes we've visited
-    visited = []
+    # list of nodes we've seen
+    seen = []
     # creates queue with the starting node
     queue = deque([start])
 
@@ -70,19 +70,19 @@ def bfs(graph):
         node = queue.popleft()
         # if you reached the end, ends the while loop
         if node == end:
-            visited.append(node)
-            return visited
-        # node not in the visited list, append the node
-        if node not in visited:
-            visited.append(node)
+            seen.append(node)
+            return seen
+        # node not in the seen list, append the node
+        if node not in seen:
+            seen.append(node)
         # loop through for the specific node
         for i in graph[node]:
-            #if the elements in that current node is not in visited, append it to the queue
-            if i not in visited:
+            #if the elements in that current node is not in seen, append it to the queue
+            if i not in seen:
                 queue.append(i)
 
-    # return the list of nodes we visited
-    return visited
+    # return the list of nodes we seen
+    return seen
 
 if __name__ == "__main__":
     main()
