@@ -1,20 +1,25 @@
 from collections import deque
 
-#TODO: update to is ask for the data file name at run
 def main():
-    print('\n\n========  Assigment 3  ========\n\n')
-    print("\n\n")
+    print('\n\n========  Breadth-first search  ========\n\n')
 
-    graph_mk = map('Magic_Kingdom.txt')
-    print(f'Magic Kingdom: \n{graph_mk}')
+    again = True
 
+    while again == True:
+        file = input("Select data file: Magic Kingdom.txt or Hollywood Studios.txt: ")
+        while file != "Magic Kingdom.txt" and file != "Hollywood Studios.txt":
+            file = input("Select data file: Magic Kingdom.txt or Hollywood Studios.txt: ")
 
-    graph_hollywood_studios = map("hollywood studios.txt")
-    print(graph_hollywood_studios)
+        graph = map(file)
 
-    print('\n\n')
-    #print(bfs(graph_mk))
-    print(bfs(graph_hollywood_studios))
+        print(f'Map: {graph}')
+        print(bfs(graph))
+
+        again = (input('Would you like to fine another path? Yes or No: ').lower())
+        if again == "no":
+            again = False
+        if again == "yes":
+            again = True
 
 
 
@@ -38,6 +43,8 @@ def map(data_file):
 
     return connections
 
+
+#TODO: Update so it keeps track of a clear path from start to finish
 def bfs(graph):
     start = ''
     end = ''
@@ -58,34 +65,21 @@ def bfs(graph):
     queue = deque([start])
 
     # Currently just checking that we are viewing all the nodes in the path
-    # while queue.popleft() != end:
     while queue:
-        #print(f'The current queue: {queue}\n')
-
         # gets the first element in the queue
         node = queue.popleft()
-        #print(f'The current node: {node}\n')
-
-
         # if you reached the end, ends the while loop
         if node == end:
             visited.append(node)
             return visited
-
-
         # node not in the visited list, append the node
         if node not in visited:
             visited.append(node)
-
-
         # loop through for the specific node
         for i in graph[node]:
-            #print(f'the current item: {i}\n')
             #if the elements in that current node is not in visited, append it to the queue
             if i not in visited:
                 queue.append(i)
-
-
 
     # return the list of nodes we visited
     return visited
