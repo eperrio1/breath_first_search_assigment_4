@@ -1,7 +1,7 @@
 from collections import deque
 
 def main():
-    print('\n\n========  Breadth-first search  ========\n\n')
+    print('\n\n========  Breadth-First Search  ========\n\n')
 
     bool = True
     while bool == True:
@@ -12,7 +12,7 @@ def main():
         graph = map(file)
 
         print(f'\nList of nodes:\n{list_nodes(file)}\n ')
-        print(f'\nThe path from start to fisnish:\n{bfs(graph)}\n')
+        print(f'\nThe path from start to finish:\n{bfs(graph)}\n')
 
         play_again = ''
         while play_again != "no" and play_again != "yes":
@@ -72,11 +72,8 @@ def bfs(graph):
 
 
 
-
-
     # list of nodes we've seen
     seen = []
-    path = []
 
     # creates queue with the starting node
     queue = deque([start])
@@ -84,14 +81,16 @@ def bfs(graph):
 
     # Currently just checking that we are viewing all the nodes in the path
     while queue:
+
         # gets the first element in the queue
         node = queue.popleft()
-        print(f'The current node: {node}')
+        #print(f'The current node: {node}')
+
+
 
         # if you reached the end, ends the while loop
         if node == end:
             seen.append(node)
-            path.append(node)
             return seen
 
 
@@ -99,20 +98,19 @@ def bfs(graph):
         # node not in the seen list, append the node
         if node not in seen:
             seen.append(node)
-            path.append(node)
-            print(f'The current seen: {seen}')
-            print(f'The current path: {path}')
+            #print(f'The current seen: {seen}')
+
 
 
         # loop through for the specific node
         for link in graph[node]:
-            print(f'The node attached to the current node: {graph[node]}')
-            print()
+            #print(f'The node attached to the current node: {graph[node]}')
+            #print()
 
             #if the elements in that current node is not in seen, append it to the queue
             if link not in seen:
                 queue.append(link)
-                print(f"The current queue: {queue}\n")
+                #print(f"The current queue: {queue}\n")
 
 
     return f'A path does not exist'
