@@ -78,13 +78,14 @@ def bfs(graph):
     # creates queue with the starting node
     queue = deque([start])
 
+    # display the map of connections
 
     # Currently just checking that we are viewing all the nodes in the path
     while queue:
-
+        # display the queue
         # gets the first element in the queue
         node = queue.popleft()
-        #print(f'The current node: {node}')
+        print(f'The current node: {node}')
 
 
 
@@ -98,7 +99,7 @@ def bfs(graph):
         # node not in the seen list, append the node
         if node not in seen:
             seen.append(node)
-            #print(f'The current seen: {seen}')
+            print(f'The current seen: {seen}')
 
 
 
